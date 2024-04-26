@@ -11,5 +11,5 @@ Scenario Outline: Login with invalid credential to sause demo portal
 	Examples: 
 
 	| userName        | password     | errorMessage                                                              |
-	| locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out.                        |
+	| locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out                        |
 	| abcduser        | secret_sauce | Epic sadface: Username and password do not match any user in this service |
