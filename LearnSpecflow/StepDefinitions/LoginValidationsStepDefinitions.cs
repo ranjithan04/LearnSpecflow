@@ -43,5 +43,12 @@ namespace LearnSpecflow.StepDefinitions
             homePage.logout();
         }
 
+        [Given(@"User navigates to sause demo portal")]
+        public void GivenUserNavigatesToSauseDemoPortal()
+        {
+            driver.Url = "https://www.saucedemo.com/";
+        }
+
+
     }
 }
