@@ -48,6 +48,11 @@ namespace LearnSpecflow.StepDefinitions
         {
             driver.Url = "https://www.saucedemo.com/";
         }
+        [When(@"User should click on login button")]
+        public void WhenUserShouldClickOnLoginButton()
+        {
+        }
+
 
 
     }
