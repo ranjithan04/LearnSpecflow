@@ -96,7 +96,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("Navigate to sause demo portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User navigates to sause demo portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
  testRunner.When(string.Format("User enter valid \"{0}\" and \"{1}\"", userName, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
