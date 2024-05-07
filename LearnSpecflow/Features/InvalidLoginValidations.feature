@@ -4,7 +4,7 @@ This feature is to validate the login functionatlity with invalid credentials
 
 Scenario Outline: Login with invalid credential to sause demo portal
 	
-	Given Navigate to sause demo portal
+	Given Navigate to sause demo portal 
 	When User enter valid "<userName>" and "<password>"
 	Then User should see error message as "<errorMessage>"
 	
