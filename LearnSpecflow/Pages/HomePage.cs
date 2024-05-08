@@ -11,8 +11,8 @@ namespace LearnSpecflow.Pages
 {
     public class HomePage
     {
-        private readonly IWebDriver driver = null;
-        ReusableActions actions = null;
+        private readonly IWebDriver driver;
+        ReusableActions actions;
 
         public HomePage(IWebDriver driver)
         {
