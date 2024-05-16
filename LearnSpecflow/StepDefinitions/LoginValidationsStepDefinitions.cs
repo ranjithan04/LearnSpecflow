@@ -53,10 +53,10 @@ namespace LearnSpecflow.StepDefinitions
         {
         }
 
-        [Given(@"User login to the application (.*)")]
-        public void GivenUserLoginToTheApplicationValiduser(string userName)
+        [Given(@"User login to the application (.*),(.*)")]
+        public void GivenUserLoginToTheApplicationUserNamePassword(string userName, string password)
         {
-            Console.WriteLine("Test 123"+ userName);
+            loginPage.login(userName, password);
         }
 
 
