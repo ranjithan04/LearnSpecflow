@@ -10,3 +10,4 @@ Scenario: Select the product and add to the cart
 	And User perform the checkout 
 	And User place the order <FirstName>,<LastName>,<ZipCode>
 	Then Order should be placed successfully <Message>
+	Then User should see the home page
