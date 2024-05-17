@@ -76,7 +76,7 @@ namespace LearnSpecflow.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Select the product and add to the cart")]
         [NUnit.Framework.CategoryAttribute("DataSource:TestData/testData.json")]
-        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Ranjithkumar", "Kandasamy", "626123", "Thank you for your order!", null)]
+        [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Srividya", "Kandasamy", "626123", "Thank you for your order!", null)]
         public void SelectTheProductAndAddToTheCart(string userName, string password, string firstName, string lastName, string zipCode, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
