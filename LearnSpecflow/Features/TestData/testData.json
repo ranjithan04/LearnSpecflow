@@ -7,7 +7,8 @@
             "LastName": "Kandasamy",
             "ZipCode": "626123",
             "Message": "Thank you for your order!",
-            "MessageOne": "Thank you for your order!"
+            "MessageOne": "Thank you for your order!",
+            "MessageTwo": "Thank you for your order!"
         }
     ]
 
