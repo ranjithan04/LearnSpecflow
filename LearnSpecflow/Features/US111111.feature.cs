@@ -20,22 +20,22 @@ namespace LearnSpecflow.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Checkout operation")]
-    public partial class CheckoutOperationFeature
+    [NUnit.Framework.DescriptionAttribute("#US111111 Checkout operation with table data")]
+    public partial class US111111CheckoutOperationWithTableDataFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "Checkout.feature"
+#line 1 "US111111.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Checkout operation", "This feature is to perform the checkout operation in sause demo portal", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "#US111111 Checkout operation with table data", "This feature is to perform the checkout operation in sause demo portal", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,10 +74,10 @@ namespace LearnSpecflow.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Select the product and add to the cart")]
+        [NUnit.Framework.DescriptionAttribute("Select the product and add to the cart with dable and data source")]
         [NUnit.Framework.CategoryAttribute("DataSource:TestData/testData.json")]
         [NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Srividya", "Kandasamy", "626123", "Thank you for your order!", "Thank you for your order!", "Thank you for your order!", null)]
-        public void SelectTheProductAndAddToTheCart(string userName, string password, string firstName, string lastName, string zipCode, string message, string messageOne, string messageTwo, string[] exampleTags)
+        public void SelectTheProductAndAddToTheCartWithDableAndDataSource(string userName, string password, string firstName, string lastName, string zipCode, string message, string messageOne, string messageTwo, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "DataSource:TestData/testData.json"};
@@ -95,7 +95,7 @@ namespace LearnSpecflow.Features
             argumentsOfScenario.Add("Message", message);
             argumentsOfScenario.Add("MessageOne", messageOne);
             argumentsOfScenario.Add("MessageTwo", messageTwo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the product and add to the cart", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the product and add to the cart with dable and data source", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -118,14 +118,19 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("User perform the checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "ZipCode"});
+                table1.AddRow(new string[] {
+                            "Ranjith",
+                            "Kumar",
+                            "123456"});
 #line 11
- testRunner.And(string.Format("User place the order {0},{1},{2}", firstName, lastName, zipCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User place the order with details as", ((string)(null)), table1, "And ");
 #line hidden
-#line 12
+#line 14
  testRunner.Then(string.Format("Order should be placed successfully {0}", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 13
- testRunner.Then("User should see the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

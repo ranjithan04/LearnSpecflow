@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Checkout - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\LoginValidations - Copy.feature.cs" />
   </ItemGroup>
 
@@ -33,12 +34,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Features\US111111.feature.cs">
+      <DependentUpon>US111111.feature</DependentUpon>
+    </Compile>
     <Compile Update="Features\Checkout.feature.cs">
       <DependentUpon>Checkout.feature</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\US111111.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\Checkout.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
