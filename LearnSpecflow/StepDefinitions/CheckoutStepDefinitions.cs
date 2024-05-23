@@ -46,7 +46,18 @@ namespace LearnSpecflow.StepDefinitions
             checkoutPage.verifyOnSuccess(Message);
         }
 
-
-
+        
+  
+            [When(@"User add another product to cart")]
+            public void WhenUserAddAnotherProductToCart()
+            {
+                checkoutPage.addMultipleProductToCart();
+            }
+        
     }
+
+
+
+
 }
+
