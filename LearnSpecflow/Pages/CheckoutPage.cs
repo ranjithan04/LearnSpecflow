@@ -26,6 +26,7 @@ namespace LearnSpecflow.Pages
         }
 
         By addToCartBtn = By.Id("add-to-cart-sauce-labs-backpack");
+        By addMultipleToCartBtn = By.Name("add-to-cart-sauce-labs-bike-light");
         By shopCartLink = By.XPath("//a[@class='shopping_cart_link']");
         By contShopBtn = By.Id("continue-shopping");
         By checkOutBtn = By.Id("checkout");
@@ -76,6 +77,13 @@ namespace LearnSpecflow.Pages
             actions.clickAction(finishBtn);
 
         }
+        public void addMultipleProductToCart()
+        {
+            actions.clickAction(addToCartBtn);
+            actions.clickAction(addMultipleToCartBtn);
+
+        }
+
     }
 
 

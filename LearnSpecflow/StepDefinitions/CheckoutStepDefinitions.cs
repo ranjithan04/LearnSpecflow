@@ -53,8 +53,18 @@ namespace LearnSpecflow.StepDefinitions
            checkoutPage.placeTheOrderWithTableData(table);
         }
 
-
-
-
+        
+  
+            [When(@"User add another product to cart")]
+            public void WhenUserAddAnotherProductToCart()
+            {
+                checkoutPage.addMultipleProductToCart();
+            }
+        
     }
+
+
+
+
 }
+
