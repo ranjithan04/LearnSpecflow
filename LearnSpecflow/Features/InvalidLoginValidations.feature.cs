@@ -21,12 +21,14 @@ namespace LearnSpecflow.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("This feature is to validate the invalid Login credentials")]
+    [NUnit.Framework.CategoryAttribute("InvalidLogin")]
     public partial class ThisFeatureIsToValidateTheInvalidLoginCredentialsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "InvalidLogin"};
         
 #line 1 "InvalidLoginValidations.feature"
 #line hidden
@@ -75,17 +77,28 @@ namespace LearnSpecflow.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login with invalid credential to sause demo portal")]
-        [NUnit.Framework.TestCaseAttribute("locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out", null)]
-        [NUnit.Framework.TestCaseAttribute("abcduser", "secret_sauce", "Epic sadface: Username and password do not match any user in this service", null)]
+        [NUnit.Framework.CategoryAttribute("LoginValidationScenario")]
+        [NUnit.Framework.TestCaseAttribute("locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out.", new string[] {
+                "Locked,",
+                "Regression"}, Category="Locked,,Regression")]
+        [NUnit.Framework.TestCaseAttribute("abcduser", "secret_sauce", "Epic sadface: Username and password do not match any user in this service", new string[] {
+                "Invalid,",
+                "Regression"}, Category="Invalid,,Regression")]
         public void LoginWithInvalidCredentialToSauseDemoPortal(string userName, string password, string errorMessage, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "LoginValidationScenario"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("userName", userName);
             argumentsOfScenario.Add("password", password);
             argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with invalid credential to sause demo portal", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -95,13 +108,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 9
  testRunner.Given("User navigates to sause demo portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 8
+#line 10
  testRunner.When(string.Format("User enter valid \"{0}\" and \"{1}\"", userName, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 9
+#line 11
  testRunner.Then(string.Format("User should see error message as \"{0}\"", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
