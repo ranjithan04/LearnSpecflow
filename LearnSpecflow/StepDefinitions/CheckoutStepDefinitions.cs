@@ -2,6 +2,7 @@ using LearnSpecflow.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Data;
 using TechTalk.SpecFlow;
 
 namespace LearnSpecflow.StepDefinitions
@@ -44,6 +45,12 @@ namespace LearnSpecflow.StepDefinitions
         public void ThenOrderShouldBePlacedSuccessfullySuccessMsg(string Message)
         {
             checkoutPage.verifyOnSuccess(Message);
+        }
+
+        [When(@"User place the order with details as")]
+        public void WhenUserPlaceTheOrderWithDetailsAs(Table table)
+        {
+           checkoutPage.placeTheOrderWithTableData(table);
         }
 
         

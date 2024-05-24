@@ -1,11 +1,16 @@
-﻿using LearnSpecflow.ReusableMethods;
+﻿using LearnSpecflow.PojoData;
+using LearnSpecflow.ReusableMethods;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace LearnSpecflow.Pages
 {
@@ -61,6 +66,17 @@ namespace LearnSpecflow.Pages
             Assert.AreEqual(successMsg, actions.getText(orderConfirmHeaderTxt));
         }
 
+        public void placeTheOrderWithTableData(Table table)
+        {
+            CheckoutDetails checkoutDetails = table.CreateInstance<CheckoutDetails>();
+
+            actions.enterText(firstNameTxt, checkoutDetails.FirstName);
+            actions.enterText(lastNameTxt, checkoutDetails.LastName);
+            actions.enterText(zipCodeTxt, checkoutDetails.ZipCode);
+            actions.clickAction(continueBtn);
+            actions.clickAction(finishBtn);
+
+        }
         public void addMultipleProductToCart()
         {
             actions.clickAction(addToCartBtn);
@@ -69,6 +85,7 @@ namespace LearnSpecflow.Pages
         }
 
     }
+
 
 
 }
