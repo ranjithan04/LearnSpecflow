@@ -1,9 +1,9 @@
-﻿@FeatureCheckout
+﻿@FeatureCheckout @US111112
 Feature: US111112 - With tags
 
 This feature is to perform the checkout operation in sause demo portal
 
-	@Oder
+	@Oder @US111112
 	@DataSource:TestData/testData.json
 	Scenario: Select the product and place the order
 	Given User navigates to sause demo portal
@@ -14,7 +14,7 @@ This feature is to perform the checkout operation in sause demo portal
 	Then Order should be placed successfully <Message>
 
 
-	@Checkout
+	@Checkout @US111112
 	@DataSource:TestData/testData.json
 	Scenario: Select the product and add to the cart
 	Given User navigates to sause demo portal
