@@ -12,28 +12,28 @@ namespace LearnSpecflow.ReusableMethods
     public class ReusableActions
     {
         private readonly IWebDriver driver;
-        WaitUtils waitUtils;
+        readonly WaitUtils waitUtils;
 
         public ReusableActions(IWebDriver driver)
         {
             this.driver = driver;
             waitUtils = new WaitUtils(driver);
         }
-        public void enterText(By element, String value)
+        public void EnterText(By element, String value)
         {
-            waitUtils.waitForElement(element);
+            waitUtils.WaitForElement(element);
             driver.FindElement(element).SendKeys(value);
         }
 
-        public void clickAction(By element)
+        public void ClickAction(By element)
         {
-            waitUtils.waitForElementToBeClickable(element);
+            waitUtils.WaitForElementToBeClickable(element);
             driver.FindElement(element).Click();
         }
 
-        public String getText(By element)
+        public String GetText(By element)
         {
-            waitUtils.waitForElement(element);
+            waitUtils.WaitForElement(element);
             return driver.FindElement(element).Text;
         }
     }

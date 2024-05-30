@@ -16,14 +16,14 @@ namespace LearnSpecflow.Utility
             this.driver = driver;
         }
 
-        public static String dir = AppDomain.CurrentDomain.BaseDirectory;
-        public static String testResultPath = dir.Replace("bin\\Debug\\net6.0", "TestResults");
+        public static readonly String dir = AppDomain.CurrentDomain.BaseDirectory;
+        public static readonly String testResultPath = dir.Replace(@"bin\\Debug\\net6.0", "TestResults");
 
-        public String addScreenshot()
+        public static String AddScreenshot(IWebDriver driver, ScenarioContext scenarioContext)
         {
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
-            string screenshotLoc = Path.Combine(testResultPath, ScenarioContext.Current.ScenarioInfo.Title + ".png");
+            string screenshotLoc = Path.Combine(testResultPath, scenarioContext.ScenarioInfo.Title + ".png");
             screenshot.SaveAsFile(screenshotLoc);
             return screenshotLoc;
         }
