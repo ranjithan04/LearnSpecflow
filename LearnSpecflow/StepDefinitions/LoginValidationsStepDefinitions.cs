@@ -9,8 +9,8 @@ namespace LearnSpecflow.StepDefinitions
     [Binding]
     public class LoginValidationsStepDefinitions
     {
-        private IWebDriver driver;
-        LoginPage loginPage;
+        private readonly IWebDriver driver;
+        private readonly LoginPage loginPage;
         HomePage homePage;
 
         public LoginValidationsStepDefinitions(IWebDriver driver) { 
@@ -28,19 +28,19 @@ namespace LearnSpecflow.StepDefinitions
         [When(@"User enter valid ""([^""]*)"" and ""([^""]*)""")]
         public void WhenUserEnterValidAnd(string username, string password)
         {
-           loginPage.login(username, password);
+           loginPage.Login(username, password);
         }
 
         [Then(@"User should see the home page")]
         public void ThenUserShouldSeeTheHomePage()
         {
-            homePage.verifyHomePageTitle();
+            homePage.VerifyHomePageTitle();
         }
 
         [Then(@"User can logout from the home page")]
         public void ThenUserCanLogoutFromTheHomePage()
         {
-            homePage.logout();
+            homePage.Logout();
         }
 
         [Given(@"User navigates to sause demo portal")]
@@ -56,7 +56,7 @@ namespace LearnSpecflow.StepDefinitions
         [Given(@"User login to the application (.*),(.*)")]
         public void GivenUserLoginToTheApplicationUserNamePassword(string userName, string password)
         {
-            loginPage.login(userName, password);
+            loginPage.Login(userName, password);
         }
 
 

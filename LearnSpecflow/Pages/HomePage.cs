@@ -12,7 +12,7 @@ namespace LearnSpecflow.Pages
     public class HomePage
     {
         private readonly IWebDriver driver;
-        ReusableActions actions;
+        readonly ReusableActions actions;
 
         public HomePage(IWebDriver driver)
         {
@@ -20,22 +20,22 @@ namespace LearnSpecflow.Pages
             actions = new ReusableActions(driver);
         }
 
-        By productTitleSpan = By.XPath("//span[@data-test='title']");
-        By pageHeaderTitle = By.XPath("//div[@class='app_logo']");
-        By burgerMenu = By.Id("react-burger-menu-btn");
-        By logoutLink = By.Id("logout_sidebar_link");
+        private readonly By productTitleSpan = By.XPath("//span[@data-test='title']");
+        private readonly By pageHeaderTitle = By.XPath("//div[@class='app_logo']");
+        private readonly By burgerMenu = By.Id("react-burger-menu-btn");
+        private readonly By logoutLink = By.Id("logout_sidebar_link");
 
 
-        public void verifyHomePageTitle()
+        public void VerifyHomePageTitle()
         {
-            Assert.AreEqual("Products", actions.getText(productTitleSpan));
-            Assert.AreEqual("Swag Labs", actions.getText(pageHeaderTitle));
+            Assert.AreEqual("Products", actions.GetText(productTitleSpan));
+            Assert.AreEqual("Swag Labs", actions.GetText(pageHeaderTitle));
         }
 
-        public void logout()
+        public void Logout()
         {
-            actions.clickAction(burgerMenu);
-            actions.clickAction(logoutLink);
+            actions.ClickAction(burgerMenu);
+            actions.ClickAction(logoutLink);
         }
     }
 }

@@ -1,17 +1,14 @@
 using LearnSpecflow.Pages;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-using TechTalk.SpecFlow;
 
 namespace LearnSpecflow.StepDefinitions
 {
     [Binding]
     public class InvalidLoginValidationsStepDefinitions
     {
-        private IWebDriver driver;
-        LoginPage loginPage;
-        HomePage homePage;
+        private readonly IWebDriver driver;
+        private readonly LoginPage loginPage;
+        private readonly HomePage homePage;
 
         public InvalidLoginValidationsStepDefinitions(IWebDriver driver) { 
             this.driver = driver;
@@ -22,7 +19,7 @@ namespace LearnSpecflow.StepDefinitions
         [Then(@"User should see error message as ""([^""]*)""")]
         public void ThenUserShouldSeeErrorMessageAs(string errorMsg)
         {
-           loginPage.verifyError(errorMsg);
+           loginPage.VerifyError(errorMsg);
         }
 
     }

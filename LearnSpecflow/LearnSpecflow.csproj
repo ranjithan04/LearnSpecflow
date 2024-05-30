@@ -5,7 +5,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Checkout - Copy.feature.cs" />
+    <Compile Remove="Drivers\**" />
+    <Compile Remove="Support\**" />
+    <EmbeddedResource Remove="Drivers\**" />
+    <EmbeddedResource Remove="Support\**" />
+    <None Remove="Drivers\**" />
+    <None Remove="Support\**" />
+    <SpecFlowFeatureFiles Remove="Drivers\**" />
+    <SpecFlowFeatureFiles Remove="Support\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Drivers\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Support\**" />
+  </ItemGroup>
+  <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\LoginValidations - Copy.feature.cs" />
   </ItemGroup>
 

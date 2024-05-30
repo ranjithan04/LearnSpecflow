@@ -17,7 +17,7 @@ namespace LearnSpecflow.Pages
     public class CheckoutPage
     {
         private readonly IWebDriver driver;
-        ReusableActions actions;
+        readonly ReusableActions actions;
 
         public CheckoutPage(IWebDriver driver)
         {
@@ -25,46 +25,44 @@ namespace LearnSpecflow.Pages
             actions = new ReusableActions(driver);
         }
 
-        By addToCartBtn = By.Id("add-to-cart-sauce-labs-backpack");
-        By addMultipleToCartBtn = By.Name("add-to-cart-sauce-labs-bike-light");
-        By addMultipleToCartBtn2 = By.Name("add-to-cart-sauce-labs-fleece-jacket");
-        By shopCartLink = By.XPath("//a[@class='shopping_cart_link']");
-        By contShopBtn = By.Id("continue-shopping");
-        By checkOutBtn = By.Id("checkout");
-        By firstNameTxt = By.Id("first-name");
-        By lastNameTxt = By.Id("last-name");
-        By zipCodeTxt = By.Id("postal-code");
-        By cancelBtn = By.Id("cancel");
-        By continueBtn = By.Id("continue");
-        By checkOutOverViewTitle = By.XPath("//div/span[@class='title']");
-        By finishBtn = By.Id("finish");
-        By orderConfirmHeaderTxt = By.XPath("//div/h2[@class='complete-header']");
-        By backToHomeBtn = By.Id("back-to-products");
+        private readonly By addToCartBtn = By.Id("add-to-cart-sauce-labs-backpack");
+        private readonly By shopCartLink = By.XPath("//a[@class='shopping_cart_link']");
+        private readonly By contShopBtn = By.Id("continue-shopping");
+        private readonly By checkOutBtn = By.Id("checkout");
+        private readonly By firstNameTxt = By.Id("first-name");
+        private readonly By lastNameTxt = By.Id("last-name");
+        private readonly By zipCodeTxt = By.Id("postal-code");
+        private readonly By cancelBtn = By.Id("cancel");
+        private readonly By continueBtn = By.Id("continue");
+        private readonly By checkOutOverViewTitle = By.XPath("//div/span[@class='title']");
+        private readonly By finishBtn = By.Id("finish");
+        private readonly By orderConfirmHeaderTxt = By.XPath("//div/h2[@class='complete-header']");
+        private readonly By backToHomeBtn = By.Id("back-to-products");
 
-        public void addProductToCart()
+        public void AddProductToCart()
         {
-            actions.clickAction(addToCartBtn);
+            actions.ClickAction(addToCartBtn);
 
         }
 
-        public void checkOut()
+        public void CheckOut()
         {
-            actions.clickAction(shopCartLink);
-            actions.clickAction(checkOutBtn);
+            actions.ClickAction(shopCartLink);
+            actions.ClickAction(checkOutBtn);
         }
 
-        public void placeTheOrder(String firstName,String lastName, String zipCode)
+        public void PlaceTheOrder(String firstName,String lastName, String zipCode)
         {          
-            actions.enterText(firstNameTxt, firstName);
-            actions.enterText(lastNameTxt, lastName);
-            actions.enterText(zipCodeTxt, zipCode);
-            actions.clickAction(continueBtn);
-            actions.clickAction(finishBtn);
+            actions.EnterText(firstNameTxt, firstName);
+            actions.EnterText(lastNameTxt, lastName);
+            actions.EnterText(zipCodeTxt, zipCode);
+            actions.ClickAction(continueBtn);
+            actions.ClickAction(finishBtn);
         }
 
-        public void verifyOnSuccess(string successMsg)
+        public void VerifyOnSuccess(string successMsg)
         {
-            Assert.AreEqual(successMsg, actions.getText(orderConfirmHeaderTxt));
+            Assert.AreEqual(successMsg, actions.GetText(orderConfirmHeaderTxt));
         }
 
         public void placeTheOrderWithTableData(Table table)

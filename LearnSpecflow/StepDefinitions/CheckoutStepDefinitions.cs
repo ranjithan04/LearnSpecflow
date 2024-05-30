@@ -11,9 +11,9 @@ namespace LearnSpecflow.StepDefinitions
     public class CheckoutStepDefinitions
     {
         private IWebDriver driver;
-        LoginPage loginPage;
-        HomePage homePage;
-        CheckoutPage checkoutPage;
+        private readonly LoginPage loginPage;
+        private readonly HomePage homePage;
+        private readonly CheckoutPage checkoutPage;
 
         public CheckoutStepDefinitions(IWebDriver driver) { 
             this.driver = driver;
@@ -26,25 +26,25 @@ namespace LearnSpecflow.StepDefinitions
         [When(@"User add the product to cart")]
         public void WhenUserAddTheProductToCart()
         {
-            checkoutPage.addProductToCart();
+            checkoutPage.AddProductToCart();
         }
 
         [When(@"User perform the checkout")]
         public void WhenUserPerformTheCheckout()
         {
-            checkoutPage.checkOut();
+            checkoutPage.CheckOut();
         }
 
         [When(@"User place the order (.*),(.*),(.*)")]
         public void WhenUserPlaceTheOrderFirstNameLastNameZipCode(string firstName,string lastName, string zipCode)
         {
-            checkoutPage.placeTheOrder(firstName, lastName, zipCode);
+            checkoutPage.PlaceTheOrder(firstName, lastName, zipCode);
         }
 
         [Then(@"Order should be placed successfully (.*)")]
         public void ThenOrderShouldBePlacedSuccessfullySuccessMsg(string Message)
         {
-            checkoutPage.verifyOnSuccess(Message);
+            checkoutPage.VerifyOnSuccess(Message);
         }
 
         [When(@"User place the order with details as")]

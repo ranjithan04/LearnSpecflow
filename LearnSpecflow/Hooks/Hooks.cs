@@ -3,6 +3,7 @@ using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Reporter.Config;
 using BoDi;
+using LearnSpecflow.Utility;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -18,11 +19,11 @@ namespace LearnSpecflow.Hooks
         private static ExtentSparkReporter sparkReporter;
 
         private readonly IObjectContainer _container;
-       
+        
         public Hooks(IObjectContainer container) { 
-
-            _container = container;   
-          
+            
+            _container = container;
+            
         }
 
 
@@ -39,20 +40,18 @@ namespace LearnSpecflow.Hooks
          
 
         [BeforeFeature]
-        [Obsolete]
-        public static void BeforeFeature()
+        public static void BeforeFeature(FeatureContext featureContext)
         {
-            feature = extentReports.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
+            feature = extentReports.CreateTest<Feature>(featureContext.FeatureInfo.Title);
         }
     
         [AfterStep]
-        [Obsolete]
-        public void AfterStep()
+        public void AfterStep(ScenarioContext scenarioContext)
         {
-            string stepType = ScenarioContext.Current.StepContext.StepInfo.StepDefinitionType.ToString();
-            string stepName = ScenarioContext.Current.StepContext.StepInfo.Text;
+            string stepType = scenarioContext.StepContext.StepInfo.StepDefinitionType.ToString();
+            string stepName = scenarioContext.StepContext.StepInfo.Text;
             var driver = _container.Resolve<IWebDriver>();
-            if (ScenarioContext.Current.TestError == null)
+            if (scenarioContext.TestError == null)
             {
                 if (stepType == "Given")
                 {
@@ -67,36 +66,35 @@ namespace LearnSpecflow.Hooks
                     scenario.CreateNode<Then>(stepName);
                 }
             }
-            if (ScenarioContext.Current.TestError != null)
+            if (scenarioContext.TestError != null)
             {
                 if (stepType == "Given")
                 {
-                    scenario.CreateNode<Given>(stepName).Fail(ScenarioContext.Current.TestError.Message,
-                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver,ScenarioContext.Current)).Build());
+                    scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message,
+                        MediaEntityBuilder.CreateScreenCaptureFromPath(ExtentSetup.AddScreenshot(driver, scenarioContext)).Build());
                 }
                 else if (stepType == "When")
                 {
-                    scenario.CreateNode<When>(stepName).Fail(ScenarioContext.Current.TestError.Message,
-                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, ScenarioContext.Current)).Build());
+                    scenario.CreateNode<When>(stepName).Fail(scenarioContext.TestError.Message,
+                        MediaEntityBuilder.CreateScreenCaptureFromPath(ExtentSetup.AddScreenshot(driver, scenarioContext)).Build());
                 }
                 else if (stepType == "Then")
                 {
-                    scenario.CreateNode<Then>(stepName).Fail(ScenarioContext.Current.TestError.Message,
-                         MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, ScenarioContext.Current)).Build());
+                    scenario.CreateNode<Then>(stepName).Fail(scenarioContext.TestError.Message,
+                         MediaEntityBuilder.CreateScreenCaptureFromPath(ExtentSetup.AddScreenshot(driver, scenarioContext)).Build());
                 }
             }
         }
 
 
         [BeforeScenario(Order = 1)]
-        [Obsolete]
-        public void BeforeScenario()
+        public void BeforeScenario(ScenarioContext scenarioContext)
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
 
             _container.RegisterInstanceAs<IWebDriver>(driver);
-            scenario = feature.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
+            scenario = feature.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
 
         }   
 
@@ -117,15 +115,5 @@ namespace LearnSpecflow.Hooks
         {
             extentReports.Flush();
         }
-
-        public static string addScreenshot(IWebDriver driver, ScenarioContext scenarioContext)
-        {
-            ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
-            Screenshot screenshot = takesScreenshot.GetScreenshot();
-            string screenshotLocation = Path.Combine(@"C:\\Users\\611689\\source\\repos\\LearnSpecflow\\LearnSpecflow\\Test Results", scenarioContext.ScenarioInfo.Title + ".png");
-            screenshot.SaveAsFile(screenshotLocation);
-            return screenshotLocation;
-        }
-
     }
 }
