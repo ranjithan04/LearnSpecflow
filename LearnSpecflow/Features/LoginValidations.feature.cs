@@ -21,12 +21,14 @@ namespace LearnSpecflow.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("This feature is to validate Login Validations")]
+    [NUnit.Framework.CategoryAttribute("Login")]
     public partial class ThisFeatureIsToValidateLoginValidationsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "Login"};
         
 #line 1 "LoginValidations.feature"
 #line hidden
@@ -81,7 +83,7 @@ namespace LearnSpecflow.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with valid credential to sause demo portal", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -91,19 +93,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
+#line 7
  testRunner.Given("Navigate to sause demo portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 7
+#line 8
  testRunner.When("User enter valid \"visual_user\" and \"secret_sauce\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 8
+#line 9
  testRunner.And("User should click on login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 9
+#line 10
  testRunner.Then("User should see the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 10
+#line 11
  testRunner.And("User can logout from the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -117,8 +119,8 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login to sause demo portal with standard user", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 13
- this.ScenarioInitialize(scenarioInfo);
+#line 14
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -127,16 +129,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 14
+#line 15
  testRunner.Given("Navigate to sause demo portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 15
+#line 16
  testRunner.When("User enter valid \"standard_user\" and \"secret_sauce\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 17
  testRunner.Then("User should see the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 17
+#line 18
  testRunner.And("User can logout from the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
